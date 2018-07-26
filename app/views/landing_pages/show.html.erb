@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Landing Page #<%= @landing_page.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Email</dt>
+      <dd><%= @landing_page.email %></dd>
+
+      <dt>Answer</dt>
+      <dd><%= @landing_page.answer %></dd>
+
+      <dt>Question num</dt>
+      <dd><%= @landing_page.question_num %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/landing_pages" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/landing_pages/<%= @landing_page.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_landing_page/<%= @landing_page.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

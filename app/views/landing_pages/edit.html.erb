@@ -1,0 +1,54 @@
+<!-- Validation failure messages -->
+<% if @landing_page.errors.any? %>
+  <% @landing_page.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Landing Page #<%= @landing_page.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_landing_page/<%= @landing_page.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for email -->
+      <div class="form-group">
+        <label for="email" class="control-label">
+          Email
+        </label>
+
+        <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="<%= @landing_page.email %>">
+      </div>
+
+      <!-- Label and input for answer -->
+      <div class="checkbox">
+        <label for="answer">
+          <input type="checkbox" id="answer" name="answer" value="1" <%= "checked" if @landing_page.answer %>>
+          Answer
+        </label>
+      </div>
+
+      <!-- Label and input for question_num -->
+      <div class="form-group">
+        <label for="question_num" class="control-label">
+          Question num
+        </label>
+
+        <input type="text" id="question_num" name="question_num" placeholder="Question num" class="form-control" value="<%= @landing_page.question_num %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Landing Page
+      </button>
+      or
+      <a href="/landing_pages/<%= @landing_page.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
