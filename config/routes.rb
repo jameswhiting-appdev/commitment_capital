@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "landing_pages#index"
   # Routes for the Landing_page resource:
   # CREATE
   get "/landing_pages/new", :controller => "landing_pages", :action => "new"
