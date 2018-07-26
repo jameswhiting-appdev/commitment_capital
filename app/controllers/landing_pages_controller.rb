@@ -1,6 +1,7 @@
 class LandingPagesController < ApplicationController
   def index
-    @landing_pages = LandingPage.page(params[:page]).per(10)
+    @q = LandingPage.ransack(params[:q])
+    @landing_pages = @q.result(:distinct => true).page(params[:page]).per(10)
 
     render("landing_pages/index.html.erb")
   end
