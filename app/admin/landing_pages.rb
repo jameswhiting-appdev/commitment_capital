@@ -1,4 +1,6 @@
 ActiveAdmin.register LandingPage do
+
+ permit_params :email, :answer, :question_num
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
