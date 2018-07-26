@@ -1,6 +1,6 @@
 class LandingPagesController < ApplicationController
   def index
-    @landing_pages = LandingPage.all
+    @landing_pages = LandingPage.page(params[:page]).per(10)
 
     render("landing_pages/index.html.erb")
   end
