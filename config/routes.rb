@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root :to => "landing_pages#index"
   # Routes for the Landing_page resource:
   # CREATE
